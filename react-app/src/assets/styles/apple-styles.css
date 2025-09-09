@@ -1,0 +1,386 @@
+/* 基础样式设置 - 苹果玻璃态风格强调毛玻璃效果和圆润边角 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 使用苹果系统风格字体 */
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* 全局样式 - 背景使用渐变增强层次感 */
+body {
+    background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+    color: #1d1d1f;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* 容器样式 - 玻璃态核心效果 */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    /* 玻璃态效果：模糊背景 + 半透明 */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px; /* 更圆润的边角 */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); /* 更柔和的阴影 */
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* 微妙边框增强玻璃感 */
+}
+
+/* 标题区域样式 */
+.app-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* 半透明边框 */
+}
+
+.app-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.app-subtitle {
+    color: #6e6e73;
+    font-size: 15px;
+}
+
+/* 添加任务区域样式 */
+.add-todo {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.todo-input {
+    flex: 1;
+    padding: 14px 18px; /* 增加内边距增强手感 */
+    border: 1px solid rgba(210, 210, 215, 0.5); /* 半透明边框 */
+    border-radius: 12px; /* 更圆润 */
+    font-size: 16px;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.6); /* 输入框半透明背景 */
+}
+
+.todo-input:focus {
+    outline: none;
+    border-color: #0071e3; /* 苹果蓝 */
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15); /* 更柔和的焦点效果 */
+}
+
+/* 按钮样式 - 玻璃态按钮 */
+.btn-primary, .btn-secondary {
+    padding: 14px 22px; /* 更大点击区域 */
+    border-radius: 12px; /* 更圆润 */
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-primary {
+    background-color: #0071e3;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.2); /* 按钮阴影 */
+}
+
+.btn-primary:hover {
+    background-color: #0077ed;
+    transform: translateY(-1px); /* 轻微上浮效果 */
+    box-shadow: 0 6px 16px rgba(0, 113, 227, 0.25);
+}
+
+.btn-primary:active {
+    background-color: #0066cc;
+    transform: translateY(0); /* 点击反馈 */
+}
+
+.btn-secondary {
+    background: rgba(245, 245, 247, 0.8); /* 半透明背景 */
+    color: #1d1d1f;
+}
+
+.btn-secondary:hover {
+    background: rgba(245, 245, 247, 1);
+    transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+    background: rgba(230, 230, 232, 1);
+    transform: translateY(0);
+}
+
+/* 过滤按钮样式 */
+.todo-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 9px 18px;
+    background: rgba(245, 245, 247, 0.7);
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn.active {
+    background-color: #0071e3;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 113, 227, 0.2);
+}
+
+.filter-btn:not(.active):hover {
+    background: rgba(245, 245, 247, 1);
+}
+
+/* 任务列表样式 */
+.todo-list {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+}
+
+.todo-item:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateX(2px); /* 轻微右移效果 */
+}
+
+/* 复选框样式 - 更圆润 */
+.todo-checkbox {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px; /* 更圆润 */
+    border: 2px solid #8e8e93;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.todo-checkbox.checked {
+    background-color: #0071e3;
+    border-color: #0071e3;
+}
+
+.todo-checkbox i {
+    color: white;
+    display: none;
+}
+
+.todo-checkbox.checked i {
+    display: block;
+}
+
+/* 任务文本样式 */
+.todo-text {
+    flex: 1;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.todo-item.completed .todo-text {
+    color: #8e8e93;
+    text-decoration: line-through;
+}
+
+/* 任务操作按钮样式 */
+.todo-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.todo-btn {
+    background: none;
+    border: none;
+    color: #8e8e93;
+    cursor: pointer;
+    width: 36px; /* 更大点击区域 */
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.todo-btn:hover {
+    background-color: rgba(234, 234, 234, 0.7);
+    color: #1d1d1f;
+    transform: scale(1.1); /* 轻微放大效果 */
+}
+
+.todo-btn.delete-btn:hover {
+    color: #ff3b30; /* 苹果红色 */
+}
+
+/* 编辑输入框样式 */
+.todo-edit-input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #0071e3;
+    border-radius: 8px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.todo-edit-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+}
+
+/* 底部统计区域样式 */
+.todo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    color: #6e6e73;
+    font-size: 14px;
+}
+
+/* 加载状态样式 */
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: #6e6e73;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* 空状态样式 */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6e6e73;
+}
+
+.empty-state i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.3;
+}
+
+/* 导航栏样式 - 玻璃态导航 */
+.navbar {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+}
+
+.nav-container {
+    max-width: 1768px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #007bff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px; /* 更圆润 */
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    background-color: rgba(233, 236, 239, 0.7);
+}
+
+.nav-link.active {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 119, 255, 0.2);
+}
+
+/* 页面内容样式 */
+.app-content {
+    max-width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* 新页面样式 - 玻璃态卡片 */
+.new-page-container {
+    max-width: 768px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.new-page-feature {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .container {
+        max-width: 90%;
+        padding: 15px;
+        border-radius: 16px;
+    }
+    
+    .add-todo {
+        flex-direction: column;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .todo-footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .todo-actions {
+        gap: 4px;
+    }
+}
+
+.todo-container {
+    max-width: 768px;
+    margin: 0 auto;
+}
