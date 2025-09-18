@@ -7,13 +7,13 @@ const NewPage = () => {
   useEffect(() => {
     // 模拟从API获取数据
     setTimeout(() => {
-      setMessage("这是一个新页面，可以在这里添加更多功能！");
+      setMessage("这是一个admin页面，可以在这里添加更多功能！");
     }, 500);
   }, []);
 
   return (
     <div className="new-page-container">
-      <h2>新页面</h2>
+      <h2>admin页面</h2>
       {message ? (
         <p>{message}</p>
       ) : (

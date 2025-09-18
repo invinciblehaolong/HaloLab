@@ -1,50 +1,31 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import TodoItem from './TodoItem';
-import todoApi from '../../services/todoApi';
 
-const TodoList = ({ filter }) => {
-  const [todos, setTodos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+// 空状态提示文本
+const getEmptyMessage = (filter) => {
+  switch (filter) {
+    case 'active':
+      return '没有未完成的任务，太棒了！';
+    case 'completed':
+      return '没有已完成的任务';
+    default:
+      return '还没有任务，添加一个吧！';
+  }
+};
 
-  // 获取任务列表
-  const fetchTodos = async () => {
-    try {
-      setLoading(true);
-      const data = await todoApi.getAll();
-      setTodos(data);
-      setError(false);
-    // eslint-disable-next-line no-unused-vars
-    } catch (err) {
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // 初始加载和筛选变化时重新获取
-  useEffect(() => {
-    fetchTodos();
-  }, []);
-
-  // 筛选任务
+const TodoList = ({ 
+  filter, 
+  todos, 
+  loading, 
+  error, 
+  onTaskUpdated 
+}) => {
+  // 根据筛选筛选任务
   const filteredTodos = todos.filter((todo) => {
     if (filter === 'active') return !todo.completed;
     if (filter === 'completed') return todo.completed;
     return true;
   });
-
-  // 空状态提示文本
-  const getEmptyMessage = () => {
-    switch (filter) {
-      case 'active':
-        return '没有未完成的任务，太棒了！';
-      case 'completed':
-        return '没有已完成的任务';
-      default:
-        return '还没有任务，添加一个吧！';
-    }
-  };
 
   if (loading) {
     return (
@@ -67,7 +48,7 @@ const TodoList = ({ filter }) => {
     return (
       <li className="empty-state">
         <i className="fas fa-list"></i>
-        <p>{getEmptyMessage()}</p>
+        <p>{getEmptyMessage(filter)}</p>
       </li>
     );
   }
@@ -75,7 +56,11 @@ const TodoList = ({ filter }) => {
   return (
     <>
       {filteredTodos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} onTaskUpdated={fetchTodos} />
+        <TodoItem 
+          key={todo.id} 
+          todo={todo} 
+          onTaskUpdated={onTaskUpdated} 
+        />
       ))}
     </>
   );

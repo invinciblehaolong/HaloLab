@@ -1,4 +1,4 @@
-const db = require('../config/db');
+const db = require('../config/database');
 
 /**
  * 创建五星间隔记录表

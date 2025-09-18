@@ -3,9 +3,9 @@ const cors = require('cors');
 require('dotenv').config();
 
 // 导入路由
-const frameRoutes = require('./src/routes/frameRoutes');
-const noteRoutes = require('./src/routes/noteRoutes');  // 重命名避免变量名与路由路径冲突
-const gachaRoutes = require('./src/routes/gachaRoutes');
+const frameRoutes = require('../src/routes/frameRoutes');
+const noteRoutes = require('../src/routes/noteRoutes');  // 重命名避免变量名与路由路径冲突
+const gachaRoutes = require('../src/routes/gachaRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;

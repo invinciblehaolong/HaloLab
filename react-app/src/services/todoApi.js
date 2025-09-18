@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8989';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 /**
  * 通用API请求函数
@@ -13,6 +13,8 @@ const apiRequest = async (endpoint, method = 'GET', data = null) => {
     headers: {
       'Content-Type': 'application/json',
     },
+    // 关键配置：携带Cookie等凭证信息
+    credentials: 'include', 
   };
 
   if (data) {
@@ -20,18 +22,31 @@ const apiRequest = async (endpoint, method = 'GET', data = null) => {
   }
 
   try {
+    
+    console.log('请求地址:', `${API_BASE_URL}${endpoint}`);
     const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
     
-    if (!response.ok) {
-      throw new Error(`请求失败: ${response.status}`);
-    }
+    // if (!response.ok) {
+    //   throw new Error(`请求失败: ${response.status}`);
+    // }
 
     // 处理DELETE请求204无返回体情况
     if (method === 'DELETE' && response.status === 204) {
       return true;
     }
 
-    return await response.json();
+    const responseText = await response.text();
+
+    // 检测是否是ngrok验证页面
+    if (responseText.includes('ngrok-free.app') && responseText.includes('DOCTYPE html')) {
+      console.error('检测到ngrok验证页面，请手动访问以下链接完成验证：', `${API_BASE_URL}${endpoint}`);
+      // 打开具体的API地址进行验证（而非根路径）
+      window.open(`${API_BASE_URL}${endpoint}`, '_blank');
+      throw new Error('需要手动验证ngrok链接，请完成后重试');
+    }
+
+    // 正常解析JSON
+    return JSON.parse(responseText);
   } catch (error) {
     console.error(`API错误 [${method} ${endpoint}]:`, error);
     throw error;

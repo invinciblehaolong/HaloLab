@@ -1,4 +1,4 @@
-const db = require('../config/db');
+const db = require('../config/database');
 
 // 创建抽卡记录表格
 const createGachaTable = async () => {
@@ -114,7 +114,7 @@ const getGachaRecords = async (params = {}) => {
     ? `WHERE ${conditions.join(' AND ')}` 
     : '';
   
-  // 3. 构建完整查询参数（条件参数 + 分页参数）
+  // 3. 构建完整查询参数（条件参数 + 分页参数）真实分页✅
   const paginationValues = [validLimit, offset];
   const queryValues = [...conditionValues, ...paginationValues];
   

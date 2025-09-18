@@ -60,7 +60,34 @@ const getGachaRecords = async (req, res) => {
   }
 };
 
+// 新增统计摘要处理方法
+const getSummaryStats = async (req, res) => {
+  try {
+    const { uid, gacha_type } = req.query;
+    
+    const params = {
+      ...(uid && { uid }),
+      ...(gacha_type && { gacha_type: parseInt(gacha_type) })
+    };
+    
+    const result = await gachaService.getSummaryStats(params);
+    
+    return res.status(200).json({
+      success: true,
+      data: result,
+      message: ''
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      data: null,
+      message: error.message
+    });
+  }
+};
+
 module.exports = {
   handleGachaUrl,
-  getGachaRecords
+  getGachaRecords,
+  getSummaryStats
 };

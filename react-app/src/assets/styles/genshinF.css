@@ -445,3 +445,39 @@
     width: 100%;
   }
 }
+
+.genshint-interval-value-container {
+  padding: 8px;
+}
+
+.interval-value-wrapper {
+  width: 100%;
+  min-width: 180px;
+}
+
+.interval-progress-container {
+  height: 8px;
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 6px 0;
+}
+
+.interval-progress-bar {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.interval-progress-bar.green {
+  background-color: #4caf50;
+}
+
+.interval-progress-bar.yellow {
+  background-color: #ffc107;
+}
+
+.interval-progress-bar.red {
+  background-color: #f44336;
+}

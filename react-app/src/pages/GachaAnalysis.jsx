@@ -41,6 +41,7 @@ const GachaAnalysis = () => {
   });
 
   // 获取抽卡记录
+  
   const fetchRecords = useCallback(async () => {
     try {
       setLoading(prev => ({ ...prev, records: true }));

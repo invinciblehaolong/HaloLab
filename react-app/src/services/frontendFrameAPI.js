@@ -1,5 +1,6 @@
 // src/services/frameApi.js
 // 这个文件专门用来和后端接口打交道，获取框架相关的数据
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 /**
  * 真实获取框架数据（调用后端接口）
@@ -20,7 +21,7 @@ export const fetchFrameData = async (forceUpdate = false) => {
     // 调用后端接口：
     // 地址是 http://localhost:3001/api/frameworks
     // 如果需要强制更新，地址会变成 http://localhost:3001/api/frameworks?forceUpdate=true
-    const response = await fetch(`http://localhost:3001/api/frameworks?${params.toString()}`);
+    const response = await fetch(`${API_BASE_URL}/frameworks?${params.toString()}`);
     
     // 检查接口是否成功响应（状态码200-299才是成功）
     if (!response.ok) {

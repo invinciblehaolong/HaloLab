@@ -16,6 +16,13 @@ const IntervalAnalysis = ({ intervals, loading, total, onCalculate }) => {
     ? calculateStats(intervals)
     : null;
 
+  // 确定进度条颜色（优化为更好看的色系）
+  const getProgressColor = (value) => {
+    if (value <= 40) return '#4ade80'; // 清新绿色（安全区）
+    if (value <= 70) return '#facc15'; // 柔和黄色（警告区）
+    return '#f87171'; // 淡红色（危险区）
+  };
+
   return (
     <div className="genshint-interval-container">
       <div className="genshint-interval-header">
@@ -83,12 +90,26 @@ const IntervalAnalysis = ({ intervals, loading, total, onCalculate }) => {
                       </td>
                       <td>
                           <span className="genshint-item-time">
-                            {new Date(interval.record_time).toLocaleString()}  // ✅ correction
-                          </span></td>
-                      <td className={`genshint-interval-value ${
-                        interval.pulls_between > 70 ? 'high' : ''
-                      }`}>
-                        {interval.pulls_between}
+                            {new Date(interval.record_time).toLocaleString()}
+                          </span>
+                      </td>
+                      <td className="genshint-interval-value-container">
+                        <div className="interval-value-wrapper">
+                          <span className={interval.pulls_between > 70 ? 'high' : ''}>
+                            {interval.pulls_between}
+                          </span>
+                          
+                          {/* 进度条组件 */}
+                          <div className="interval-progress-container">
+                            <div 
+                              className="interval-progress-bar"
+                              style={{
+                                width: `${Math.min(interval.pulls_between, 90) / 90 * 100}%`,
+                                backgroundColor: getProgressColor(interval.pulls_between)
+                              }}
+                            ></div>
+                          </div>
+                        </div>
                       </td>
                       <td>{interval.uid}</td>
                     </tr>

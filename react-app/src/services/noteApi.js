@@ -1,7 +1,7 @@
 // src/services/noteApi.js
 // 用于与后端Markdown文件接口交互
 
-const API_BASE_URL = 'http://localhost:3001'; // 后端服务地址
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 /**
  * 通用API请求函数
@@ -42,14 +42,14 @@ export const noteApi = {
    * 获取所有Markdown文件列表
    * @returns {Promise<Array>} - 文件列表
    */
-  getAllNotes: () => apiRequest('/api/notes'),
+  getAllNotes: () => apiRequest('/notes'),
   
   /**
    * 获取单个Markdown文件内容
    * @param {string} filePath - 文件路径
    * @returns {Promise<object>} - 文件内容
    */
-  getNoteContent: (filePath) => apiRequest(`/api/notes/content?filePath=${encodeURIComponent(filePath)}`)
+  getNoteContent: (filePath) => apiRequest(`/notes/content?filePath=${encodeURIComponent(filePath)}`)
 };
 
 export default noteApi;
