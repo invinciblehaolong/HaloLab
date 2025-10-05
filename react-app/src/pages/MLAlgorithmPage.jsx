@@ -31,7 +31,7 @@ const MLAlgorithmPage = () => {
   return (
     <div className="ml-page-container">
       <header className="ml-page-header">
-        <h1>机器学习与深度学习算法演示</h1>
+        <h1>区块链提升模型共识算法演示</h1>
         {showMainContent && (
           <button 
             className="back-btn"

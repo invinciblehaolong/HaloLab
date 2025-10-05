@@ -40,30 +40,37 @@ const App = () => {
           {/* 路由添加保护 */}
           <Route path="/" element={
             <ProtectedRoute>
+
               <Home />
             </ProtectedRoute>} />
           <Route path="/new-page" element={
             <ProtectedRoute>
+
               <NewPage />
             </ProtectedRoute>} />
           <Route path="/frame-stats" element={
             <ProtectedRoute>
+
               <FrameStats />
             </ProtectedRoute>} />
           <Route path="/markdown-viewer" element={
             <ProtectedRoute>
+
               <MarkdownViewerPage />
             </ProtectedRoute>} />
           <Route path="/markdown-viewer/fullscreen" element={
             <ProtectedRoute>
+
               <MarkdownViewerPage />
             </ProtectedRoute>} />
-          <Route path="/genshinT-gacha" element={
+          <Route path="/genshin/gacha" element={
             <ProtectedRoute>
+
               <GachaAnalysis />
             </ProtectedRoute>} />
           <Route path="/ml-algorithms" element={
             <ProtectedRoute>
+              
               <MLAlgorithmPage  />
             </ProtectedRoute>} />
             

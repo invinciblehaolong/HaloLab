@@ -1,3 +1,12 @@
+:root{
+  --brand: #0071e3;      /* Apple 蓝 */
+  --brand-600: #0077ed;
+  --brand-700: #0066cc;
+  --muted: #6e6e73;
+  --surface: rgba(255,255,255,.7);
+  --glass-blur: 12px;
+}
+
 /* 基础样式设置 - 苹果玻璃态风格强调毛玻璃效果和圆润边角 */
 * {
     margin: 0;
@@ -303,7 +312,7 @@ body {
 }
 
 .nav-container {
-    max-width: 1768px;
+    max-width: 1280px;
     margin: 0 auto;
     display: flex;
     gap: 1rem;
@@ -325,6 +334,40 @@ body {
     background-color: #007bff;
     color: white;
     box-shadow: 0 2px 8px rgba(0, 119, 255, 0.2);
+}
+
+/* apple-styles.css (导航栏样式部分新增) */
+.nav-user-section {
+  margin-left: auto; /* 右对齐 */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.nav-username {
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-logout-btn {
+  background-color: #f0f0f0;
+  color: #666;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.nav-logout-btn:hover {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.nav-logout-btn:active {
+  background-color: #d0d0d0;
 }
 
 /* 页面内容样式 */

@@ -44,8 +44,8 @@ const Navbar = () => {
           Markdown查看器
         </Link>
         <Link 
-          to="/genshinT-gacha" 
-          className={`nav-link ${location.pathname === '/genshinT-gacha' ? 'active' : ''}`}
+          to="/genshin/gacha" 
+          className={`nav-link ${location.pathname === '/genshin/gacha' ? 'active' : ''}`}
         >
           GenshinT抽卡分析
         </Link>
@@ -53,7 +53,7 @@ const Navbar = () => {
           to="/ml-algorithms" 
           className={`nav-link ${location.pathname === '/ml-algorithms' ? 'active' : ''}`}
         >
-          ml-algorithms
+          blockchain-algorithms
         </Link>
         {/* 显示当前用户和退出按钮 */}
         <div className="nav-user-section">

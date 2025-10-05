@@ -209,7 +209,8 @@
   cursor: not-allowed;
 }
 
-.chart-container {
+/* 改动点：为所有 chart 样式加上页面作用域前缀 */
+.ml-page-container .chart-container {
   margin-top: 20px;
   height: 300px;
 }

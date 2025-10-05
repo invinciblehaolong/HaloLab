@@ -18,7 +18,4 @@ router.post('/calculate-intervals', fiveStarController.calculateFiveStarInterval
 router.get('/intervals', fiveStarController.getFiveStarIntervals);
 
 
-// 新增统计摘要路由
-router.get('/summary', gachaController.getSummaryStats);
-
 module.exports = router;

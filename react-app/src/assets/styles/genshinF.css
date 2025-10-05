@@ -481,3 +481,6 @@
 .interval-progress-bar.red {
   background-color: #f44336;
 }
+
+/* 在原文件末尾或 .genshint-interval-value 附近新增 */
+.genshint-interval-value-container span.high { color: #e53935; font-weight: 600; }

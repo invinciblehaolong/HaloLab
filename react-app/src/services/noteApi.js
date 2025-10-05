@@ -1,3 +1,23 @@
+// // src/services/noteApi.js
+// import http from "./http";
+
+// export const noteApi = {
+//   async list() {
+//     const { data } = await http.get("/notes");
+//     return data;
+//   },
+//   async get(id) {
+//     const { data } = await http.get(`/notes/${id}`);
+//     return data;
+//   },
+//   async create(note) {
+//     const { data } = await http.post("/notes", note);
+//     return data;
+//   },
+// };
+
+
+
 // src/services/noteApi.js
 // 用于与后端Markdown文件接口交互
 
