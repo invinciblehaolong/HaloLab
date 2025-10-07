@@ -49,6 +49,12 @@ const Navbar = () => {
         >
           GenshinT抽卡分析
         </Link>
+        <Link
+          to="/genshin/damage"
+          className={`nav-link ${location.pathname === '/genshin/damage' ? 'active' : ''}`}
+        >
+          GenshinDamageCalcu
+        </Link>
         <Link 
           to="/ml-algorithms" 
           className={`nav-link ${location.pathname === '/ml-algorithms' ? 'active' : ''}`}

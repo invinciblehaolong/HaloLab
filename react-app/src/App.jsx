@@ -8,6 +8,7 @@ import GachaAnalysis from './pages/GachaAnalysis';
 import Login from './pages/Login';
 import useAuthStatus from './hooks/useAuthStatus'; // 导入自定义 Hook
 import MLAlgorithmPage from './pages/MLAlgorithmPage';
+import GenshinDamageCalculator from './pages/GenshinDamageCalculator';
 
 import './assets/styles/apple-styles.css';
 import './assets/styles/genshinF.css';
@@ -67,6 +68,11 @@ const App = () => {
             <ProtectedRoute>
 
               <GachaAnalysis />
+            </ProtectedRoute>} />
+          <Route path="/genshin/damage" element={
+            <ProtectedRoute>
+
+              <GenshinDamageCalculator />
             </ProtectedRoute>} />
           <Route path="/ml-algorithms" element={
             <ProtectedRoute>
